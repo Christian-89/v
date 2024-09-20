@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla NutriFit</title>
+    <style>
+        /*Configuración general de la pantalla*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /*Configuración del body*/
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /*Configuración del Contenedor de la imagen de forn*/
+        .background-container {
+            position: relative; /* Para que el logo se pueda mover dentro de este contenedor */
+            width: 360px; /* Ajustado para pantallas móviles */
+            height: 800px;
+            background-image: url('Iconos/fondoRegis1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /*Configuración del contenedor de imagen y logo*/
+        .container {
+            width: 100%;
+            max-width: 360px;
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -60px; /*Alejar el logo y el contenedor*/
+        }
+
+        /*Configuración del contenedor Blanco*/
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 20px;
+            width: 90%;
+            max-width: 320px;
+            text-align: center;
+            position: relative; /* Necesario para posicionar mensajes de error dentro de los campos */
+        }
+
+        .buttons { /* Contenedor de los botones */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0; /* Elimina la separación entre los botones */
+            margin-left: 30px; /* Mueve los botones hacia la derecha */
+        }
+
+        /*Apariencia de los botones de la ventana*/
+        button {
+            border: none;
+            outline: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+            white-space: nowrap;
+            margin-left: -20px; /* Juntar más los botones */
+        }
+
+        /*Configuración del boton de login*/
+        .login {
+            background-color: #EAC784;
+            color: rgb(0, 0, 0);
+            border-radius: 25px 0px 0px 25px;
+            padding-left: 25px;
+        }
+
+        /*Configuración del boton de registrar*/
+        .register {
+            background-color: #D24D25;
+            color: white;
+            border-radius: 25px;
+            margin-left: -20px;
+            padding-left: 30px;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        form div {
+            position: relative; /* Posiciona el contenedor del mensaje de error dentro del campo */
+        }
+
+        form input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        /*Errores de mensage al registrar el nuevo usuarios*/
+        .error-message {
+            color: red;
+            font-size: 12px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            pointer-events: none; /* Permite hacer clic en el campo de entrada */
+        }
+
+        form button {
+            padding: 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #ff6b35;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        form button:hover {
+            background-color: #d15428;
+        }
+
+        /*Configuración del logo*/
+        .logo {
+            position: absolute; /* Posición absoluta para poder mover el logo */
+            top: 20px; /* Distancia desde la parte superior */
+            left: 50%; /* Centrado horizontalmente */
+            transform: translateX(-50%); /* Ajuste para mantener el logo centrado */
+        }
+
+        .logo img {
+            width: 200px; /* Tamaño más grande del logo */
+            height: 200px; /* Ajusta también la altura */
+            border-radius: 50%; /* Mantiene bordes redondeados */
+            object-fit: cover; /* Asegura que la imagen llene su contenedor sin distorsión */
+        }
+
+       
+        /* Responsividad ajustar lo del contenedor*/
+        @media (max-width: 768px) {
+            .background-container {
+                width: 80%; /* Ajustar el tamaño del contenedor */
+                height: auto;
+            }
+
+            .login-box {
+                max-width: 280px; /* Ajuste para pantallas más pequeñas */
+            }
+
+            .logo img {
+                width: 80px; /* Ajusta el tamaño del logo para pantallas pequeñas */
+                height: 80px;
+                border-radius: 50%; /* Crear borde redondeado */
+               
+            }
+
+            button {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        /* Para pantallas muy pequeñas*/
+        @media (max-width: 480px) {
+            .background-container {
+                width: 100%; /* Ancho completo en pantallas muy pequeñas */
+                height: auto;
+            }
+
+            .login-box {
+                max-width: 250px; /* Ajuste adicional para pantallas muy pequeñas */
+            }
+
+            .logo img {
+                width: 100px; /* Ajuste adicional del logo */
+                height: 100px;
+            }
+
+            button {
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="logo">
+            <img src="Iconos/Logo.jpg" alt="Logo de mi aplicación">
+        </div>
+        <div class="container">
+            <div class="login-box">
+                <div class="buttons">
+                    <button class="login active">Iniciar sesión</button>
+                    <button class="register">Registrar</button>
+                </div>
+                <h1>Bienvenido a NutriFit</h1>
+                <form id="loginForm" method="POST" action="Conexion.php">
+                    <div>
+                        <input type="email" name="correo" placeholder="Ingrese su correo electrónico" required>
+                        <span class="error-message" id="error-correo"></span>
+                    </div>
+                    <div>
+                        <input type="password" name="contrasena" placeholder="Ingrese Contraseña" required>
+                        <span class="error-message" id="error-contrasena"></span>
+                    </div>
+                    <div>
+                        <input type="text" name="nombre" placeholder="Ingrese su nombre" required>
+                        <span class="error-message" id="error-nombre"></span>
+                    </div>
+                    <div>
+                        <input type="number" name="edad" placeholder="Ingrese su edad" required>
+                        <span class="error-message" id="error-edad"></span>
+                    </div>
+                    <button type="submit">Guardar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+      document.getElementById('loginForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var formData = new FormData(this);
+
+    fetch('Conexion.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Limpiar mensajes de error anteriores
+        document.querySelectorAll('.error-message').forEach(elem => elem.textContent = '');
+
+        if (data.success) {
+            alert(data.message);
+            // Opcional: Redirigir o hacer algo más después de un registro exitoso
+        } else {
+            // Mostrar mensajes de error dentro de los campos correspondientes
+            if (data.errors) {
+                for (const [field, message] of Object.entries(data.errors)) {
+                    const errorElem = document.getElementById('error-' + field);
+                    const inputElem = document.querySelector(`input[name="${field}"]`);
+
+                    if (errorElem) {
+                        errorElem.textContent = message;
+                    }
+
+                    if (inputElem) {
+                        // Borrar el texto del campo
+                        inputElem.value = '';
+
+                        // Cambiar el placeholder cuando haya un error
+                        inputElem.dataset.placeholder = inputElem.placeholder;
+                        inputElem.placeholder = '';
+
+                        // Limpiar el mensaje de error cuando el usuario comience a escribir
+                        inputElem.addEventListener('input', function() {
+                            if (errorElem) {
+                                errorElem.textContent = '';
+                            }
+                            // Restaurar el placeholder si el campo está vacío
+                            if (inputElem.value === '') {
+                                inputElem.placeholder = inputElem.dataset.placeholder;
+                            }
+                        });
+                    }
+                }
+            } else {
+                // Manejar otros errores si es necesario
+                alert(data.message);
+            }
+        }
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+const loginButton = document.querySelector(".login");
+      loginButton.addEventListener("click", function() {
+            window.location.href = "Login.html";
+        });
+    </script>
+</body>
+</html>

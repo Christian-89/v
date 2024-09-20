@@ -1,0 +1,258 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pantalla NutriFit</title>
+    <style>
+        /* Reset general */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .background-container {
+            width: 360px; /* Ajustado para pantallas móviles */
+            height: 800px;
+            background-image: url('Iconos/fondoRegis1.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+            position: relative; /* Necesario para el posicionamiento absoluto de los elementos */
+        }
+
+        .container {
+            width: 100%;
+            max-width: 360px;
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -200px; /*Alejar el logo y el contenedor*/
+        }
+
+        .login-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 20px;
+            width: 90%;
+            max-width: 320px;
+            text-align: center;
+            position: relative; /* Necesario para posicionar mensajes de error dentro de los campos */
+        }
+
+        .login-box h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .register-data-btn {
+            background-color: #007bff; /* Color de fondo del botón */
+            color: #fff; /* Color del texto */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px; /* Espacio superior para separar del contenido anterior */
+            width: 100%; /* Ancho completo para el botón */
+        }
+
+        /* Opcional: ajuste del tamaño en pantallas pequeñas */
+        @media (max-width: 768px) {
+            .register-data-btn {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .register-data-btn {
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 2px;
+            margin-top: 100px;
+        }
+
+        .logo img {
+            width: 120vw; /* Ajuste del tamaño del logo en función del ancho de la pantalla */
+            max-width: 180px; /* Límite máximo de tamaño */
+            height: auto; /* Mantener proporción */
+            border-radius: 50%; /* Crear borde redondeado */
+            object-fit: cover; /* Hace que la imagen llene el contenedor sin distorsión */
+        }
+
+        /* Estilo para la línea verde y los botones */
+        .footer {
+            width: 100%;
+            position: fixed; /* Fija el footer al final de la pantalla */
+            bottom: 0;
+            text-align: center;
+            padding-bottom: 0px; /* Ajuste del espacio inferior */
+        }
+        
+        .boton {
+            width: 50px; /* Ancho más grande para los botones */
+            height: 50px; /* Altura más grande para los botones */
+            border: none;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Posicionamiento relativo dentro de su contenedor */
+        }
+
+        .boton img {
+            width: 50px; /* Aumenta el tamaño de la imagen dentro del botón */
+            height: 50px;
+        }
+
+        .botones-container {
+            display: flex;
+            justify-content: space-evenly; /* Mueve los botones más hacia el centro */
+            align-items: flex-end;
+            position: absolute;
+            bottom: 5px; /* Aumenta este valor para bajar más los botones */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 360px; /* Límite del contenedor */
+        }
+
+        .linea-horizontal {
+            width: 100%;
+            max-width: 360px;
+            height: 60px;
+            background-color: #28a745;
+            position: absolute;
+            bottom: 0; /* Mantén este valor si deseas que la línea verde quede en el fondo */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Responsividad */
+        @media (max-width: 768px) {
+            .background-container {
+                width: 80%; /* Ajustar el tamaño del contenedor */
+                height: auto;
+            }
+
+            .login-box {
+                max-width: 280px; /* Ajuste para pantallas más pequeñas */
+            }
+
+            .logo img {
+                width: 80px; /* Ajusta el tamaño del logo para pantallas pequeñas */
+                height: 80px;
+            }
+        }
+
+        /* Para pantallas muy pequeñas */
+        @media (max-width: 480px) {
+            .background-container {
+                width: 100%; /* Ancho completo en pantallas muy pequeñas */
+                height: auto;
+            }
+
+            .login-box {
+                max-width: 250px; /* Ajuste adicional para pantallas muy pequeñas */
+            }
+
+            .logo img {
+                width: 100px; /* Ajuste adicional del logo */
+                height: 100px;
+            }
+
+            .boton {
+                width: 40px;
+                height: 40px;
+            }
+
+            .boton img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-container">
+        <div class="logo">
+            <img src="Iconos/Logo.jpg" alt="Logo de mi aplicación web">
+        </div>
+        <div class="container">
+            <div class="login-box">
+                <h1 id="welcome-message"></h1>
+                <button class="register-data-btn">Registrar Datos</button>
+            </div>
+        </div>
+
+        <!-- Nueva sección con la línea horizontal y los botones sobre la línea -->
+        <div class="footer">
+            <div class="linea-horizontal"></div>
+            <div class="botones-container">
+                <button class="boton" id="btn-back">
+                    <img src="Iconos/atras.png" alt="Icono 1">
+                </button>
+                <button class="boton">
+                    <img src="Iconos/Home.png" alt="Icono 2">
+                </button>
+                <button class="boton">
+                    <img src="Iconos/ajustes.png" alt="Icono 3">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Selecciona el botón de 'atrás'
+            const btnBack = document.getElementById('btn-back');
+
+            // Agrega un evento de clic al botón de atrás
+            btnBack.addEventListener('click', function() {
+                // Navega a la página anterior en el historial
+                window.history.back();
+            });
+
+            // Selecciona el botón de 'Registrar Datos'
+            const btnRegisterData = document.querySelector('.register-data-btn');
+
+            // Agrega un evento de clic al botón de registrar datos
+            btnRegisterData.addEventListener('click', function() {
+                // Redirige a la página datos.html
+                window.location.href = 'datos.html';
+            });
+        });
+
+        // Cargar el archivo PHP que recupera el mensaje de bienvenida
+        fetch('Mensajes.php')
+            .then(response => response.text())
+            .then(html => {
+                const messageElement = document.getElementById('welcome-message');
+                messageElement.innerHTML = ''; // Limpia el contenido anterior
+                messageElement.innerHTML = html; // Inserta el nuevo mensaje
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<html>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Passion+One:wght@400;700&display=swap">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Añadir la etiqueta viewport -->
+    <title>NutriFit</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body, html {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        .container {
+            width: 100%;  /* Utilizamos el 100% del ancho de la pantalla */
+            max-width: 360px;  /* Pero con un límite máximo de 360px */
+            height: 100vh;
+            max-height: 800px;  /* Limitar la altura máxima */
+            background-image: url('Iconos/Fondo1.jpg');
+            background-size: cover; /* Hace que la imagen cubra todo el contenedor */
+            background-position: center; /* Centra la imagen */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            text-align: center;
+            width: 100%;
+            max-width: 300px; /* Límite de tamaño de logo */
+        }
+
+        .logo img {
+            width: 100%; /* Haz que el logo sea flexible */
+            max-width: 300px;
+            height: auto; /* Mantiene la proporción de la imagen */
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 50px; /* Ajustamos el margen superior */
+        }
+
+        .title {
+            font-family: 'Passion One', sans-serif;
+            font-size: 10vw; /* Tamaño de fuente adaptable */
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        .login-button {
+            background-color: #D55025;
+            color: #fff;
+            border: none;
+            padding: 15px 60px;
+            font-size: 4vw; /* Tamaño de texto adaptable */
+            border-radius: 9px;
+            cursor: pointer;
+            margin-top: 30px; /* Ajustar margen para hacerlo más flexible */
+        }
+
+        /* Estilos para pantallas más pequeñas */
+        @media (max-width: 480px) {
+            .logo img {
+                width: 80%; /* Reducir el tamaño del logo en pantallas pequeñas */
+                margin-top: 20px;
+            }
+
+            .login-button {
+                padding: 10px 40px;
+                font-size: 5vw; /* Aumentar el tamaño del texto en botones en pantallas más pequeñas */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="Iconos/Logo.jpg" alt="Logo de mi aplicacion web">
+        </div>
+        <div class="title"></div>
+        <button class="login-button">LOG IN</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const loginButton = document.querySelector(".login-button");
+            loginButton.addEventListener("click", function() {
+                window.location.href = "Login.html";
+            });
+        });
+    </script>
+</body>
+</html>

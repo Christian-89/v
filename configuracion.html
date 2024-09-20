@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('fondoRegis1.jpg') no-repeat center center fixed; /* Fondo del código original */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .menu-container {
+            background-color: rgba(255, 255, 255, 0.7); /* Transparente */
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .menu-item {
+            background-color: #e65100;
+            color: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu-item:hover {
+            background-color: #ff8f00;
+        }
+
+        /* Estilo para la línea verde y los botones */
+        .footer {
+            width: 100%;
+            position: fixed; /* Fija el footer al final de la pantalla */
+            bottom: 0;
+            text-align: center;
+            padding-bottom: 0px; /* Ajuste del espacio inferior */
+        }
+
+        .boton {
+            width: 50px; /* Ancho más grande para los botones */
+            height: 50px; /* Altura más grande para los botones */
+            border: none;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Posicionamiento relativo dentro de su contenedor */
+        }
+
+        .boton img {
+            width: 50px; /* Aumenta el tamaño de la imagen dentro del botón */
+            height: 50px;
+        }
+
+        .botones-container {
+            display: flex;
+            justify-content: space-evenly; /* Mueve los botones más hacia el centro */
+            align-items: flex-end;
+            position: absolute;
+            bottom: 5px; /* Aumenta este valor para bajar más los botones */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 360px; /* Límite del contenedor */
+        }
+
+
+        .linea-horizontal {
+            width: 100%;
+            max-width: 360px;
+            height: 60px;
+            background-color: #28a745;
+            position: absolute;
+            bottom: 0; /* Mantén este valor si deseas que la línea verde quede en el fondo */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* Adaptación para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .menu-container {
+                width: 95%;
+                max-width: 100%;
+            }
+
+            .menu-item {
+                font-size: 16px;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+
+    <div class="menu-container">
+        <h1>Menú Principal</h1>
+
+        <div class="menu-item" onclick="goToPage('Ajustes.php')">
+            Editar Datos
+        </div>
+
+        <div class="menu-item" onclick="goToPage('nutriologo.html')">
+            Nutriólogo
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="linea-horizontal"></div>
+        <div class="botones-container">
+            <button class="boton" id="back">
+                <img src="Iconos/atras.png" alt="Icono 1">
+            </button>
+            <button class="boton" id="home">
+                <img src="Iconos/Home.png" alt="Icono 2">
+            </button>
+            <button class="boton" id="settings">
+                <img src="Iconos/ajustes.png" alt="Icono 3">
+            </button>
+        </div>
+    </div>
+
+    <script>
+        function goToPage(page) {
+            window.location.href = page; // Redirige a la página que se le pase como argumento
+        }
+
+        // Redirigir al login al hacer clic en Home
+        document.getElementById('home').addEventListener('click', function() {
+            window.location.href = 'inicio.html';
+        });
+
+        // Redirigir a nosotros.html al hacer clic en Ajustes
+        document.getElementById('settings').addEventListener('click', function() {
+            window.location.href = 'Ajustes.php';
+        });
+
+        // Redirigir a la página anterior al hacer clic en Atrás
+        document.getElementById('back').addEventListener('click', function() {
+            window.history.back();
+        });
+
+    </script>
+</body>
+</html>

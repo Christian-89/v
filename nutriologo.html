@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niranjana Fit Nutrición Deportiva - Contáctenos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('fondoRegis1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            padding: 10px; /* Reduce el padding */
+            max-width: 90%; /* Cambia a un porcentaje para que se ajuste mejor */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            color: white;
+            gap: 10px; /* Reduce el gap entre elementos */
+        }
+
+        .contact-info, .formulario {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 1px; /* Reduce el padding */
+            border-radius: 10px;
+            flex: 1 1 100%; /* Hace que cada uno ocupe el 100% en pantallas pequeñas */
+            max-width: 250px; /* Establece un ancho máximo */
+            margin: auto; /* Centra los elementos */
+        }
+
+        .contact-info p {
+            margin: 5px 0; /* Reduce el margen */
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+      
+
+        input, textarea {
+            margin: 1px 0;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilo para la línea verde y los botones */
+        .footer {
+            width: 100%;
+            position: fixed; /* Fija el footer al final de la pantalla */
+            bottom: 0;
+            text-align: center;
+            padding-bottom: 0px; /* Ajuste del espacio inferior */
+        }
+
+        .boton {
+            width: 50px; /* Ancho más grande para los botones */
+            height: 50px; /* Altura más grande para los botones */
+            border: none;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative; /* Posicionamiento relativo dentro de su contenedor */
+        }
+
+        .boton img {
+            width: 50px; /* Aumenta el tamaño de la imagen dentro del botón */
+            height: 50px;
+        }
+
+        .botones-container {
+            display: flex;
+            justify-content: space-evenly; /* Mueve los botones más hacia el centro */
+            align-items: flex-end;
+            position: absolute;
+            bottom: 5px; /* Aumenta este valor para bajar más los botones */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 360px; /* Límite del contenedor */
+        }
+
+
+        .linea-horizontal {
+            width: 100%;
+            max-width: 360px;
+            height: 60px;
+            background-color: #28a745;
+            position: absolute;
+            bottom: 0; /* Mantén este valor si deseas que la línea verde quede en el fondo */
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="contact-container">
+        <div class="contact-info">
+            <h2>Nutriólogo</h2>
+            <h2>Dirección</h2>
+            <p>Edificio Gamma, C. 2 Nte. 113-interior 9, Centro, 94100 Huatusco de Chicuellar, Ver.</p>
+            <h2>Número de Teléfono</h2>
+            <p>55 3748 1867</p>
+            <h2>Correo Electrónico</h2>
+            <p>niranjanafit7@gmail.com</p>
+        </div>
+
+        <div class="formulario">
+            <h2>Contáctenos</h2>
+            <!-- El formulario envía los datos a send_email.php -->
+            <form action="send_email.php" method="post">
+                <input type="text" name="name" placeholder="Ingrese su Nombre" required>
+                <input type="email" name="email" placeholder="Ingrese un correo electrónico válido" required>
+                <textarea name="message" rows="5" placeholder="Escriba su mensaje aquí" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="linea-horizontal"></div>
+        <div class="botones-container">
+            <button class="boton" id="back">
+                <img src="Iconos/atras.png" alt="Icono 1">
+            </button>
+            <button class="boton" id="home">
+                <img src="Iconos/Home.png" alt="Icono 2">
+            </button>
+            <button class="boton" id="settings">
+                <img src="Iconos/ajustes.png" alt="Icono 3">
+            </button>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        // Redirigir al login al hacer clic en Home
+        document.getElementById('home').addEventListener('click', function() {
+            window.location.href = 'inicio.html';
+        });
+
+        // Redirigir a nosotros.html al hacer clic en Ajustes
+        document.getElementById('settings').addEventListener('click', function() {
+            window.location.href = 'Ajustes.php';
+        });
+
+        // Redirigir a la página anterior al hacer clic en Atrás
+        document.getElementById('back').addEventListener('click', function() {
+            window.history.back();
+        });
+
+    </script>
+</body>
+</html>

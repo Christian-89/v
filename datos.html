@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresar Datos Salud</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('fondoRegis1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.7); /* Más transparente */
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 400px;
+            padding: 20px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centrar el contenido */
+        }
+
+        .overlay {
+            width: 100%;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 40px); /* Deja espacio para que no toque los bordes */
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.7); /* Transparencia de los campos */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .radio-group {
+            text-align: left;
+            margin: 10px 0;
+            width: calc(100% - 40px); /* Evitar que toque los bordes */
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .radio-group label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .radio-group input {
+            margin-right: 10px;
+        }
+
+        .button {
+            background-color: #e65100;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: calc(100% - 40px); /* Evitar que el botón toque los bordes */
+            margin-top: 15px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .button:hover {
+            background-color: #bf360c;
+        }
+
+        footer {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            width: calc(100% - 40px); /* Evitar que toque los bordes */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer; /* Cambiar el cursor cuando pases sobre las imágenes */
+        }
+
+        /* Adaptar a pantallas más pequeñas (móviles) */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                max-width: 100%;
+                height: auto;
+            }
+
+            footer img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+
+        /* Pantallas más grandes (computadoras) */
+        @media (min-width: 769px) {
+            .container {
+                width: 60%;
+                max-width: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="overlay">
+            <h2>Cargar datos</h2>
+            <form action="procesardatos.php" method="POST">
+                <input type="text" name="sexo" placeholder="Sexo" required>
+                <input type="number" name="edad" placeholder="Edad" required>
+                <input type="number" name="peso" placeholder="Peso (kg)" required>
+                <input type="number" name="estatura" placeholder="Estatura (cm)" required>
+
+                <div class="radio-group">
+                    <label>Nivel de actividad física</label>
+                    <label><input type="radio" name="actividad" value="Básico" required>Básico</label>
+                    <label><input type="radio" name="actividad" value="Moderado">Moderado</label>
+                    <label><input type="radio" name="actividad" value="Avanzado">Avanzado</label>
+                </div>
+
+                <div class="radio-group">
+                    <label>Enfermedad</label>
+                    <label><input type="radio" name="enfermedad" value="Diabetes">Diabetes</label>
+                    <label><input type="radio" name="enfermedad" value="Colesterol">Colesterol</label>
+                    <label><input type="radio" name="enfermedad" value="Hipertensión">Hipertensión</label>
+                </div>
+
+                <div class="radio-group">
+                    <label>Objetivos específicos</label>
+                    <label><input type="radio" name="objetivo" value="Pérdida de peso">Pérdida de peso</label>
+                    <label><input type="radio" name="objetivo" value="Ganancia muscular">Ganancia muscular</label>
+                </div>
+
+                <button type="submit" class="button">Cargar datos</button>
+            </form>
+
+            <footer>
+                <img src="atras.png" alt="Atrás" id="back">
+                <img src="Home.png" alt="Home" id="home">
+                <img src="ajustes.png" alt="Configuración" id="settings">
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Redirigir al login al hacer clic en Home
+        document.getElementById('home').addEventListener('click', function() {
+            window.location.href = 'inicio.html';
+        });
+
+        // Redirigir a nosotros.html al hacer clic en Ajustes
+        document.getElementById('settings').addEventListener('click', function() {
+            window.location.href = 'nosotros.html';
+        });
+
+        // Redirigir a la página anterior al hacer clic en Atrás
+        document.getElementById('back').addEventListener('click', function() {
+            window.history.back();
+        });
+    </script>
+</body>
+</html>
